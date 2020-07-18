@@ -41,5 +41,5 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="ScoringArea1" to="." method="_on_ScoringArea_body_entered" binds= [ 1 ]]
-[connection signal="body_entered" from="ScoringArea2" to="." method="_on_ScoringArea_body_entered" binds= [ 2 ]]
+[connection signal="body_entered" from="ScoringArea1" to="." method="_on_ScoringArea_body_entered" binds= [ 2 ]]
+[connection signal="body_entered" from="ScoringArea2" to="." method="_on_ScoringArea_body_entered" binds= [ 1 ]]
