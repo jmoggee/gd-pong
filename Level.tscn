@@ -1,17 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://wall/Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://paddle/Paddle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://paddle/paddle_05.png" type="Texture" id=3]
 [ext_resource path="res://ball/Ball.tscn" type="PackedScene" id=4]
-[ext_resource path="res://score/ScoringArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://score/ScoreManager.tscn" type="PackedScene" id=5]
 [ext_resource path="res://fonts/Kenney Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Level.gd" type="Script" id=7]
 [ext_resource path="res://sounds/gameover.ogg" type="AudioStream" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 35
-font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 6 )
@@ -56,37 +52,6 @@ pause_mode = 1
 position = Vector2( 640, 360 )
 scale = Vector2( 0.2, 0.2 )
 
-[node name="ScoringArea1" parent="." instance=ExtResource( 5 )]
-pause_mode = 1
-position = Vector2( -20, 0 )
-
-[node name="ScoringArea2" parent="." instance=ExtResource( 5 )]
-pause_mode = 1
-position = Vector2( 1300, 0 )
-
-[node name="ScoreLabel1" type="Label" parent="."]
-margin_right = 640.0
-margin_bottom = 100.0
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ScoreLabel2" type="Label" parent="."]
-margin_left = 640.0
-margin_right = 1280.0
-margin_bottom = 100.0
-custom_fonts/font = SubResource( 1 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PlayLabel" type="Label" parent="."]
 margin_left = 482.0
 margin_top = 205.0
@@ -102,7 +67,8 @@ __meta__ = {
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-[connection signal="body_entered" from="ScoringArea1" to="." method="_on_ScoringArea_body_entered" binds= [ 1 ]]
-[connection signal="body_entered" from="ScoringArea2" to="." method="_on_ScoringArea_body_entered" binds= [ 2 ]]
+
+[node name="ScoreManager" parent="." instance=ExtResource( 5 )]
+[connection signal="game_over" from="ScoreManager" to="." method="_on_game_over"]
 
 [editable path="Paddle2"]
