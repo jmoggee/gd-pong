@@ -74,7 +74,8 @@ stream = ExtResource( 8 )
 
 [node name="AIPlayer" type="Node" parent="."]
 script = ExtResource( 9 )
-difficulty = 70
+max_speed = 600
+difficulty = 300
 [connection signal="game_over" from="ScoreManager" to="." method="_on_game_over"]
 
 [editable path="Paddle2"]
